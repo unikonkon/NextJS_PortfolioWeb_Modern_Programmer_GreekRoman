@@ -1,0 +1,910 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════════
+   OLYMPIAN CODE - Digital Renaissance Design System
+   "Where ancient wisdom meets modern code"
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: var(--font-cinzel);
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-lora);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-marble: var(--marble);
+  --color-marble-cream: var(--marble-cream);
+  --color-obsidian: var(--obsidian);
+  --color-pantheon: var(--pantheon);
+  --color-gold: var(--gold);
+  --color-bronze: var(--bronze);
+  --color-patina: var(--patina);
+  --color-wine: var(--wine);
+  --color-aegean: var(--aegean);
+  --color-terracotta: var(--terracotta);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Olympian Code Palette - Light Mode */
+  --background: #f5f5f0;
+  --foreground: #1a1a1a;
+
+  /* Marble & Stone */
+  --marble: #f5f5f0;
+  --marble-cream: #faf7f2;
+  --marble-vein: #e8e8e3;
+  --obsidian: #1a1a1a;
+  --pantheon: #2d2d2d;
+  --charcoal: #1c1c1c;
+
+  /* Precious Metals */
+  --gold: #d4af37;
+  --gold-light: #f5e6a3;
+  --gold-dark: #b8960c;
+  --bronze: #cd7f32;
+  --bronze-dark: #a66428;
+
+  /* Classical Accents */
+  --patina: #4a7c59;
+  --patina-light: #5d9970;
+  --wine: #722f37;
+  --wine-light: #8b3a44;
+  --aegean: #1e3a5f;
+  --aegean-light: #2a4f7f;
+  --terracotta: #c67b5c;
+
+  /* UI Elements */
+  --border: #dcdcd7;
+  --input: #e8e8e3;
+  --ring: #d4af37;
+
+  /* Papyrus */
+  --papyrus: #f5e6c8;
+  --papyrus-dark: #e8d4a8;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #fffff0;
+  --marble: #0f0f0f;
+  --marble-cream: #141414;
+  --marble-vein: #1a1a1a;
+  --border: rgba(212, 175, 55, 0.2);
+  --input: rgba(255, 255, 255, 0.1);
+  --gold: #ffd700;
+  --gold-light: #ffe44d;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--obsidian);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MARBLE TEXTURES
+   ═══════════════════════════════════════════════════════════════ */
+
+.marble-texture {
+  background:
+    linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%),
+    linear-gradient(45deg, var(--marble) 0%, var(--marble-vein) 25%, var(--marble) 50%, var(--marble-cream) 75%, var(--marble) 100%);
+  background-size: 400% 400%, 100% 100%;
+}
+
+.marble-subtle {
+  background: linear-gradient(
+    135deg,
+    var(--marble) 0%,
+    var(--marble-cream) 25%,
+    var(--marble) 50%,
+    var(--marble-vein) 75%,
+    var(--marble) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GREEK KEY (MEANDER) PATTERN
+   ═══════════════════════════════════════════════════════════════ */
+
+.greek-key-border {
+  --key-color: var(--gold);
+  position: relative;
+}
+
+.greek-key-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--key-color) 0px,
+      var(--key-color) 8px,
+      transparent 8px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      var(--key-color) 0px,
+      var(--key-color) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  background-size: 32px 8px;
+  opacity: 0.6;
+}
+
+.greek-key-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--key-color) 0px,
+      var(--key-color) 8px,
+      transparent 8px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      var(--key-color) 0px,
+      var(--key-color) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  background-size: 32px 8px;
+  opacity: 0.6;
+}
+
+/* Simplified Greek Key for smaller elements */
+.greek-key-simple {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--gold) 0px,
+    var(--gold) 4px,
+    transparent 4px,
+    transparent 8px,
+    var(--gold) 8px,
+    var(--gold) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+  height: 4px;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GOLDEN SHIMMER EFFECTS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--gold-light) 25%,
+    var(--gold) 50%,
+    var(--gold-light) 75%,
+    var(--gold) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-glow {
+  text-shadow:
+    0 0 10px rgba(212, 175, 55, 0.5),
+    0 0 20px rgba(212, 175, 55, 0.3),
+    0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHISEL TYPING ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes chisel {
+  0% {
+    opacity: 0;
+    transform: scale(1.3) translateY(-5px);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes chiselCursor {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.chisel-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: chisel 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.chisel-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--gold);
+  margin-left: 4px;
+  animation: chiselCursor 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLUMN RISE ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes columnRise {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scaleY(0.8);
+  }
+  60% {
+    transform: translateY(-10px) scaleY(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+.column-rise {
+  animation: columnRise 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL UNROLL ANIMATION
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes unroll {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: perspective(500px) rotateX(-90deg);
+    transform-origin: top center;
+  }
+  100% {
+    max-height: 2000px;
+    opacity: 1;
+    transform: perspective(500px) rotateX(0deg);
+  }
+}
+
+.scroll-unroll {
+  animation: unroll 0.8s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TORCH FLICKER
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes torchFlicker {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  25% {
+    opacity: 0.9;
+    filter: brightness(1.1);
+  }
+  50% {
+    opacity: 0.95;
+    filter: brightness(0.95);
+  }
+  75% {
+    opacity: 0.85;
+    filter: brightness(1.05);
+  }
+}
+
+.torch-flicker {
+  animation: torchFlicker 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MARBLE TERMINAL WINDOW
+   ═══════════════════════════════════════════════════════════════ */
+
+.terminal-marble {
+  background: var(--obsidian);
+  border: 3px solid transparent;
+  border-image: linear-gradient(
+    135deg,
+    var(--gold) 0%,
+    var(--bronze) 25%,
+    var(--gold) 50%,
+    var(--bronze) 75%,
+    var(--gold) 100%
+  ) 1;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+.terminal-header {
+  background: linear-gradient(
+    180deg,
+    var(--pantheon) 0%,
+    var(--obsidian) 100%
+  );
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Terminal Syntax - Olympian Colors */
+.syntax-gold { color: var(--gold); }
+.syntax-bronze { color: var(--bronze); }
+.syntax-patina { color: var(--patina); }
+.syntax-wine { color: var(--wine); }
+.syntax-aegean { color: var(--aegean); }
+.syntax-ivory { color: #fffff0; }
+.syntax-comment { color: #6b7280; font-style: italic; }
+
+/* ═══════════════════════════════════════════════════════════════
+   PAPYRUS CODE BLOCKS
+   ═══════════════════════════════════════════════════════════════ */
+
+.papyrus-block {
+  background: linear-gradient(
+    180deg,
+    var(--papyrus) 0%,
+    var(--papyrus-dark) 100%
+  );
+  border: 2px solid var(--bronze);
+  position: relative;
+  box-shadow:
+    inset 0 0 30px rgba(139, 90, 43, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.papyrus-block::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, transparent 50%, var(--papyrus-dark) 50%);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROMAN SHIELD / MEDAL COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
+
+.roman-shield {
+  background: linear-gradient(
+    145deg,
+    var(--gold-light) 0%,
+    var(--gold) 30%,
+    var(--gold-dark) 70%,
+    var(--bronze) 100%
+  );
+  border: 3px solid var(--bronze-dark);
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.roman-shield::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAUREL WREATH DECORATION
+   ═══════════════════════════════════════════════════════════════ */
+
+.laurel-left::before,
+.laurel-right::after {
+  font-size: 1.5em;
+  color: var(--patina);
+  opacity: 0.7;
+}
+
+.laurel-left::before {
+  content: '🌿';
+  margin-right: 0.5em;
+}
+
+.laurel-right::after {
+  content: '🌿';
+  margin-left: 0.5em;
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLUMN DECORATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.ionic-column {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    var(--marble-vein) 0%,
+    var(--marble) 20%,
+    var(--marble-cream) 50%,
+    var(--marble) 80%,
+    var(--marble-vein) 100%
+  );
+  box-shadow:
+    inset 2px 0 5px rgba(0, 0, 0, 0.1),
+    inset -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.ionic-column::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(
+    180deg,
+    var(--marble-vein) 0%,
+    var(--marble) 100%
+  );
+  border-bottom: 2px solid var(--border);
+}
+
+.ionic-column::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(
+    0deg,
+    var(--marble-vein) 0%,
+    var(--marble) 100%
+  );
+  border-top: 2px solid var(--border);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TIMELINE - ODYSSEY STYLE
+   ═══════════════════════════════════════════════════════════════ */
+
+.odyssey-line {
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--gold) 0%,
+    var(--bronze) 50%,
+    var(--patina) 100%
+  );
+}
+
+.odyssey-node {
+  width: 20px;
+  height: 20px;
+  background: var(--gold);
+  border: 3px solid var(--bronze);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px var(--background),
+    0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTON STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.btn-temple {
+  background: linear-gradient(
+    180deg,
+    var(--gold) 0%,
+    var(--gold-dark) 100%
+  );
+  border: 2px solid var(--bronze);
+  color: var(--obsidian);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 15px rgba(212, 175, 55, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-temple:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 25px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-temple:active {
+  transform: translateY(0);
+}
+
+.btn-scroll {
+  background: linear-gradient(
+    180deg,
+    var(--papyrus) 0%,
+    var(--papyrus-dark) 100%
+  );
+  border: 2px solid var(--bronze);
+  color: var(--obsidian);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-scroll:hover {
+  background: linear-gradient(
+    180deg,
+    var(--papyrus-dark) 0%,
+    var(--papyrus) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.card-conquest {
+  background: var(--marble);
+  border: 2px solid var(--border);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-conquest::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--bronze) 50%,
+    var(--gold) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-conquest:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+.card-conquest:hover::before {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM STYLES - PETITION
+   ═══════════════════════════════════════════════════════════════ */
+
+.input-petition {
+  background: var(--marble-cream);
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.input-petition:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  outline: none;
+}
+
+.input-petition::placeholder {
+  color: var(--bronze);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR STYLING
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--marble-vein);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--gold) 0%,
+    var(--bronze) 100%
+  );
+  border: 2px solid var(--marble-vein);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVIGATION STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.nav-temple {
+  background: linear-gradient(
+    180deg,
+    var(--marble) 0%,
+    var(--marble-cream) 100%
+  );
+  border-bottom: 3px solid var(--gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+  color: var(--obsidian);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--gold-dark);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION DIVIDERS
+   ═══════════════════════════════════════════════════════════════ */
+
+.divider-temple {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.divider-temple::before,
+.divider-temple::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold) 50%,
+    transparent 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE UTILITIES
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .greek-key-border::before,
+  .greek-key-border::after {
+    height: 4px;
+    background-size: 16px 4px;
+  }
+
+  .ionic-column::before {
+    height: 10px;
+  }
+
+  .ionic-column::after {
+    height: 8px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROSE STYLING FOR ABOUT SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.prose-classical {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--obsidian);
+}
+
+.prose-classical p:first-of-type::first-letter {
+  font-family: var(--font-cinzel), serif;
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SKILL PROGRESS BAR
+   ═══════════════════════════════════════════════════════════════ */
+
+.progress-bar-olympian {
+  height: 8px;
+  background: var(--marble-vein);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--gold-light) 50%,
+    var(--gold) 100%
+  );
+  border-radius: 4px;
+  transition: width 1s ease-out;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER INSCRIPTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.footer-inscription {
+  background: var(--obsidian);
+  color: var(--marble);
+  border-top: 4px solid var(--gold);
+}
+
+.footer-inscription a {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+.footer-inscription a:hover {
+  color: var(--gold-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FLOATING ELEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FADE IN ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
