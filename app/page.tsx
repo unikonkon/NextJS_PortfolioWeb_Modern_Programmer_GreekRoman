@@ -472,7 +472,7 @@ export default function Home() {
             >
               <span className="text-xl">🏛️</span>
               <span className="text-lg font-semibold text-[var(--obsidian)] tracking-wide hidden sm:block">
-                SVTHEP
+                SUTHEP
               </span>
             </a>
 
@@ -550,13 +550,12 @@ export default function Home() {
 
           {/* Main Title */}
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-[var(--obsidian)] tracking-wide mb-6 mt-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-normal text-[var(--obsidian)] tracking-wide mb-6 mt-6"
             style={{ fontFamily: 'var(--font-cinzel)' }}
           >
-            <ChiselText text="SVTHEP" delay={100} />
-            <br />
-            <span className="text-3xl md:text-5xl lg:text-6xl font-normal text-[var(--bronze)]">
-              <ChiselText text="JANTAWEE" delay={500} />
+            <ChiselText text="SUTHEP" delay={50} />
+            <span className="text-3xl md:text-5xl lg:text-6xl font-normal text-[var(--obsidian)] pl-6">
+              <ChiselText text="JANTAWEE" delay={400} />
             </span>
           </h1>
 
@@ -687,7 +686,7 @@ export default function Home() {
                       className="text-2xl text-[var(--gold)] tracking-wider"
                       style={{ fontFamily: 'var(--font-cinzel)' }}
                     >
-                      SVTHEP
+                      SUTHEP
                     </h3>
                     <p
                       className="text-[var(--marble)] opacity-80 italic"
@@ -1126,7 +1125,7 @@ export default function Home() {
                   className="text-xl text-[var(--gold)]"
                   style={{ fontFamily: 'var(--font-cinzel)' }}
                 >
-                  SVTHEP
+                  SUTHEP
                 </span>
               </div>
               <p
